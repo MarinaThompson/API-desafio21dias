@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API-Materiais", "API-Alunos\API-Materiais.csproj", "{742A8D43-5BD1-4F53-8C67-50622D033640}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{742A8D43-5BD1-4F53-8C67-50622D033640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{742A8D43-5BD1-4F53-8C67-50622D033640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{742A8D43-5BD1-4F53-8C67-50622D033640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{742A8D43-5BD1-4F53-8C67-50622D033640}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B5AEF5AD-21DD-4787-B1F3-8C65BF0AC015}
+	EndGlobalSection
+EndGlobal
