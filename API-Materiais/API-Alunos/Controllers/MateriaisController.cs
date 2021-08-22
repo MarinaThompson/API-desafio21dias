@@ -3,7 +3,6 @@ using API_Alunos.Servico;
 using EntityFrameworkPaginateCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -55,11 +54,14 @@ namespace API_Alunos.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (!await AlunoServico.ValidarUsuario(material.AlunoId))
+                    return StatusCode(400, new { Mensagem = "O usuário passado não é válido ou não está cadastrado" }); 
+
                 _context.Add(material);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index)); 
             }
-            return StatusCode(201, material); 
+            return StatusCode(400, new { Mensagem = "O material passado é inválido" }); 
         }
 
         //PUT: /material/5

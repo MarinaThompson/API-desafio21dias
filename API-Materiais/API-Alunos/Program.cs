@@ -11,6 +11,7 @@ namespace API_Alunos
 {
     public class Program
     {
+        public static string AlunoApi = null; 
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();

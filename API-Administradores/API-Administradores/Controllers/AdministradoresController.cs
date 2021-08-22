@@ -1,4 +1,5 @@
 ﻿using API_Administradores.Models;
+using API_Administradores.ModelViews;
 using API_Administradores.Servico;
 using EntityFrameworkPaginateCore;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +23,41 @@ namespace API_Administradores.Controllers
         [Route("/administradores")]
         public async Task<IActionResult> Index(int page = 1)
         {
-            return StatusCode(200, await _context.Administradores.OrderBy(a => a.Id).PaginateAsync(page, 3));
+            return StatusCode(200, await _context.Administradores.OrderBy(a => a.Id)
+                .Select(a => new
+            {
+                Id = a.Id, 
+                Nome = a.Nome,
+                Email = a.Email
+            })               
+               .PaginateAsync(page, 3));
+        }
+
+        [HttpPost]
+        [Route("administradores/login")]
+        public async Task<IActionResult> Login([FromBody] AdmLoginView admin)
+        {
+            if(string.IsNullOrEmpty(admin.Email) || string.IsNullOrEmpty(admin.Senha))
+            {
+                return StatusCode(400, new
+                {
+                    Mensagem = "É obrigatório passar o email e a senha"
+                }); 
+            }
+            var administrador = await _context.Administradores.Where(a => a.Email == admin.Email && a.Senha == admin.Senha).FirstOrDefaultAsync();
+            if(administrador != null)
+            {
+                return StatusCode(200, new
+                {
+                  Id = administrador.Id, 
+                  Nome = administrador.Nome,
+                  Email = administrador.Email                
+                });
+            }
+            return StatusCode(200, new
+            {
+                Mensagem = "Usuário e/ou Senha não autorizado"
+            });
         }
 
         // GET: /administradores/5
@@ -42,7 +77,12 @@ namespace API_Administradores.Controllers
                 return NotFound();
             }
 
-            return StatusCode(200, administrador);
+            return StatusCode(200, new
+            {
+                Id = administrador.Id,
+                Nome = administrador.Nome,
+                Email = administrador.Email
+            });
         }
 
         // POST: /administradores

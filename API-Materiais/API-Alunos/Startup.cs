@@ -28,7 +28,7 @@ namespace API_Alunos
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            Program.AlunoApi = Configuration.GetConnectionString("AlunosApi"); 
             string strConn = Configuration.GetConnectionString("MinhaConexao");
             services.AddDbContext<DbContexto>(options => options.UseSqlServer(strConn)); 
 
