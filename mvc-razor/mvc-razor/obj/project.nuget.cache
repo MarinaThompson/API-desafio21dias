@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "q/RpgUN3mwi9Mf5u+yqud0f2ht5uBTjacQ0tNUqYkTAC162XZsphEcUGHsU+3UglMK+sfp27HcFf2rtH8WEs4g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\marin\\Desktop\\desafio21dias\\mvc-razor\\mvc-razor\\mvc-razor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\marin\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
