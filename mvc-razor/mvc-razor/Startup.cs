@@ -25,6 +25,7 @@ namespace mvc_razor
         {
             Program.AdministradoresAPI = Configuration.GetConnectionString("AdministradoresAPI");
             Program.AlunosAPI = Configuration.GetConnectionString("AlunosAPI");
+            Program.MateriaisAPI = Configuration.GetConnectionString("MateriaisAPI");
             services.AddControllersWithViews();
         }
 

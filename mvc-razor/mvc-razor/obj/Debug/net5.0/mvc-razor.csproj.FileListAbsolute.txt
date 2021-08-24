@@ -48,3 +48,8 @@ C:\Users\marin\Desktop\desafio21dias\mvc-razor\mvc-razor\obj\Debug\net5.0\Razor\
 C:\Users\marin\Desktop\desafio21dias\mvc-razor\mvc-razor\obj\Debug\net5.0\Razor\Views\Alunos\Details.cshtml.g.cs
 C:\Users\marin\Desktop\desafio21dias\mvc-razor\mvc-razor\obj\Debug\net5.0\Razor\Views\Alunos\Edit.cshtml.g.cs
 C:\Users\marin\Desktop\desafio21dias\mvc-razor\mvc-razor\obj\Debug\net5.0\Razor\Views\Alunos\Index.cshtml.g.cs
+C:\Users\marin\Desktop\desafio21dias\mvc-razor\mvc-razor\obj\Debug\net5.0\Razor\Views\Materiais\Create.cshtml.g.cs
+C:\Users\marin\Desktop\desafio21dias\mvc-razor\mvc-razor\obj\Debug\net5.0\Razor\Views\Materiais\Delete.cshtml.g.cs
+C:\Users\marin\Desktop\desafio21dias\mvc-razor\mvc-razor\obj\Debug\net5.0\Razor\Views\Materiais\Details.cshtml.g.cs
+C:\Users\marin\Desktop\desafio21dias\mvc-razor\mvc-razor\obj\Debug\net5.0\Razor\Views\Materiais\Edit.cshtml.g.cs
+C:\Users\marin\Desktop\desafio21dias\mvc-razor\mvc-razor\obj\Debug\net5.0\Razor\Views\Materiais\Index.cshtml.g.cs

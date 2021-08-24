@@ -13,6 +13,7 @@ namespace mvc_razor
     {
         public static string AdministradoresAPI = null; 
         public static string AlunosAPI = null; 
+        public static string MateriaisAPI = null; 
         
         public static void Main(string[] args)
         {

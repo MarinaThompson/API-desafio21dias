@@ -1,33 +1,30 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using mvc_razor.Models;
 using mvc_razor.Servico;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace mvc_razor.Controllers
 {
-    public class AlunosController : Controller
+    public class MateriaisController : Controller
     {
-        //GET: Alunos
+        //GET: Materiais
         public async Task<IActionResult> Index(int pagina = 1)
         {
-            return View(await AlunoServico.TodosPaginado(pagina));
+            return View(await MaterialServico.TodosPaginado(pagina));
         }
 
-        //GET: Alunos/Details/5
+        //GET: Materiais/Details/5
         public async Task<IActionResult> Details(int id)
         {
-            var aluno = await AlunoServico.BuscarPorId(id);
-            if (aluno == null)
+            var material = await MaterialServico.BuscarPorId(id);
+            if (material == null)
             {
                 return NotFound();
             }
-            return View(aluno);
-        }
+            return View();
+        }    
 
-        //GET: Alunos/Create
+        //GET: Materiais/Create
         public IActionResult Create()
         {
             return View();
@@ -35,64 +32,63 @@ namespace mvc_razor.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id, Nome, Matricula, Notas")] Aluno aluno)
+        public async Task<IActionResult> Create([Bind("Id, Nome, AlunoId")] Material material)
         {
             if (ModelState.IsValid)
             {
-                var estudante = await AlunoServico.Salvar(aluno);
+                var mat = await MaterialServico.Salvar(material);
                 return RedirectToAction(nameof(Index));
-
             }
-            return View(aluno);
+            return View(material);
         }
 
 
-        //GET: Alunos/Edit/5
+        //GET: Materiais/Edit/5
         public async Task<IActionResult> Edit(int id)
         {
-            var aluno = await AlunoServico.BuscarPorId(id);
-            if (aluno == null)
+            var material = await MaterialServico.BuscarPorId(id);
+            if (material == null)
             {
                 return NotFound();
             }
-            return View(aluno);
+            return View(material);
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id, Nome, Matricula, Notas")] Aluno aluno)
+        public async Task<IActionResult> Edit(int id, [Bind("Id, Nome, AlunoId")] Material material)
         {
-            if (id != aluno.Id)
+            if (id != material.Id)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                await AlunoServico.Salvar(aluno);
+                await MaterialServico.Salvar(material);
                 return RedirectToAction(nameof(Index));
             }
-            return View(aluno);
+            return View(material);
         }
 
-        //GET: Alunos/Delete/5
+        //GET: Materiais/Delete/5
         public async Task<IActionResult> Delete(int id)
         {
-            var aluno = await AlunoServico.BuscarPorId(id);
-            if (aluno == null)
+            var material = await MaterialServico.BuscarPorId(id);
+            if (material == null)
             {
                 return NotFound();
             }
-            return View(aluno);
+            return View(material);
         }
 
-        //POST: Alunos/Delete/5
+        //POST: Materiais/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            await AlunoServico.ExcluirPorId(id);
+            await MaterialServico.ExcluirPorId(id);
             return RedirectToAction(nameof(Index));
         }
     }

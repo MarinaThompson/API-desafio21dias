@@ -62,7 +62,7 @@ namespace mvc_razor.Servico
                 }
                 else
                 {
-                    using (var response = await http.PutAsJsonAsync($"{Program.AlunosAPI}/administradores/{aluno.Id}", aluno))
+                    using (var response = await http.PutAsJsonAsync($"{Program.AlunosAPI}/alunos/{aluno.Id}", aluno))
                     {
                         if (!response.IsSuccessStatusCode) throw new Exception("Erro ao atualizar na API");
                         return JsonConvert.DeserializeObject<Aluno>(await response.Content.ReadAsStringAsync());
