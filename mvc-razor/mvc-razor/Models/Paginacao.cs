@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace mvc_razor.Models
 {
-    public class PaginacaoMaterial
+    public class Paginacao<T>
     {
-        public List<Material> Results { get; set; }
+        public List<T> Results { get; set; }
 
         public int CurrentPage { get; set; }
         public int PageCount { get; set; }

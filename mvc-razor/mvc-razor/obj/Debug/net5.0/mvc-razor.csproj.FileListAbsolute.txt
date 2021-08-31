@@ -53,3 +53,5 @@ C:\Users\marin\Desktop\desafio21dias\mvc-razor\mvc-razor\obj\Debug\net5.0\Razor\
 C:\Users\marin\Desktop\desafio21dias\mvc-razor\mvc-razor\obj\Debug\net5.0\Razor\Views\Materiais\Details.cshtml.g.cs
 C:\Users\marin\Desktop\desafio21dias\mvc-razor\mvc-razor\obj\Debug\net5.0\Razor\Views\Materiais\Edit.cshtml.g.cs
 C:\Users\marin\Desktop\desafio21dias\mvc-razor\mvc-razor\obj\Debug\net5.0\Razor\Views\Materiais\Index.cshtml.g.cs
+C:\Users\marin\Desktop\desafio21dias\mvc-razor\mvc-razor\obj\Debug\net5.0\Razor\Views\Login\Index.cshtml.g.cs
+C:\Users\marin\Desktop\desafio21dias\mvc-razor\mvc-razor\obj\Debug\net5.0\Razor\Views\Shared\_LayoutLogin.cshtml.g.cs

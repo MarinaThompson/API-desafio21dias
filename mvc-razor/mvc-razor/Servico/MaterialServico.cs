@@ -15,16 +15,16 @@ namespace mvc_razor.Servico
             return (await TodosPaginado(pagina)).Results;
         }
 
-        public static async Task<PaginacaoMaterial> TodosPaginado(int pagina = 1)
+        public static async Task<Paginacao<Material>> TodosPaginado(int pagina = 1)
         {
             using (var http = new HttpClient())
             {
                 using (var response = await http.GetAsync($"{Program.MateriaisAPI}/materiais?page={pagina}"))
                 {
-                    if (!response.IsSuccessStatusCode) return new PaginacaoMaterial();
+                    if (!response.IsSuccessStatusCode) return new Paginacao<Material>();
 
                     string json = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<PaginacaoMaterial>(json);
+                    return JsonConvert.DeserializeObject<Paginacao<Material>>(json);
                 }
             }
         }

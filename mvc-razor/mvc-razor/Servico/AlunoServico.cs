@@ -15,16 +15,16 @@ namespace mvc_razor.Servico
             return (await TodosPaginado(pagina)).Results;
         }
 
-        public static async Task<PaginacaoAluno> TodosPaginado(int pagina = 1)
+        public static async Task<Paginacao<Aluno>> TodosPaginado(int pagina = 1)
         {
             using (var http = new HttpClient())
             {
                 using(var response = await http.GetAsync($"{Program.AlunosAPI}/alunos?page={pagina}"))
                 {
-                    if (!response.IsSuccessStatusCode) return new PaginacaoAluno();
+                    if (!response.IsSuccessStatusCode) return new Paginacao<Aluno>();
 
                     string json = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<PaginacaoAluno>(json); 
+                    return JsonConvert.DeserializeObject<Paginacao<Aluno>>(json); 
                 }
             }
         }

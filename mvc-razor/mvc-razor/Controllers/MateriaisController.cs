@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using mvc_razor.Helpers;
 using mvc_razor.Models;
 using mvc_razor.Servico;
 using System.Threading.Tasks;
 
 namespace mvc_razor.Controllers
 {
+    [Logado]
     public class MateriaisController : Controller
     {
         //GET: Materiais

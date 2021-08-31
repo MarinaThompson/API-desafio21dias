@@ -15,16 +15,29 @@ namespace mvc_razor.Servico
             return (await TodosPaginado(pagina)).Results;
         }
 
-        public static async Task<PaginacaoAdm> TodosPaginado(int pagina = 1)
+        public static async Task<Paginacao<Administrador>> TodosPaginado(int pagina = 1)
         {
             using (var http = new HttpClient())
             {
                 using (var response = await http.GetAsync($"{Program.AdministradoresAPI}/administradores?page={pagina}"))
                 {
-                    if (!response.IsSuccessStatusCode) return new PaginacaoAdm();
+                    if (!response.IsSuccessStatusCode) return new Paginacao<Administrador>();
 
                     string json = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<PaginacaoAdm>(json);
+                    return JsonConvert.DeserializeObject<Paginacao<Administrador>>(json);
+                }
+            }
+        }
+
+        public static async Task<Administrador> Logar(string email, string senha)
+        {
+            using(var http = new HttpClient())
+            {
+                var adm = new Administrador() { Email = email, Senha = senha };
+                using (var response = await http.PostAsJsonAsync($"{Program.AdministradoresAPI}/administradores/login", adm))
+                {
+                    if (!response.IsSuccessStatusCode) return null;
+                    return JsonConvert.DeserializeObject <Administrador>(await response.Content.ReadAsStringAsync());
                 }
             }
         }
